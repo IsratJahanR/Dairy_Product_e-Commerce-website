@@ -1,0 +1,47 @@
+{% extends "app/adminbase.html" %}
+{% load static %}
+{% block title %}Customer List{% endblock title %}
+
+{%block main-content%}
+<div class="container">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        
+        <h2 class="panel-title" align="center" >Total Customer List</h2>
+        <hr>
+       
+      </div>
+      <table class="table table-hover" id="dev-table">
+        <thead>
+          <tr>
+           
+          
+            <th>User Name</th>
+            <th>Name</th>
+            <th>Mobile</th>
+            <th>City</th>
+            <th>State</th>
+            <th>zipcode</th>
+          </tr>
+        </thead>
+        {% for p in products %}
+        {% if p %}
+        <tr>
+        <td> {{p.user}}</td>
+        <td>{{p.name}}</td>
+        <td> {{p.mobile}}</td>
+        <td> {{p.city}}</td>
+        <td> {{p.state}}</td>
+        <td> {{p.zipcode}}</td>
+       
+        </tr>
+        {%else%}
+        <br><br><br>
+        <h1>no products</h1>
+        {% endif %}
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  
+{% endblock main-content %}

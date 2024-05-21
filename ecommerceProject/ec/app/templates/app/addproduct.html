@@ -1,0 +1,29 @@
+{% extends "app/adminbase.html" %}
+
+{% load static %}
+{% block title %}Add Product{% endblock title %}
+
+{%block main-content%}
+<div class = "container">
+    <div class = "row my-3">
+        <div class = "col-sm-8 offset-sm-2">
+            <h3>Add Product</h3>
+            <hr>
+            <form enctype="multipart/form-data" action="" method="post" novalidate class="shadow p-5">
+                {% csrf_token %}
+                {% for fm in form %}
+                {{fm.label_tag}}{{fm}}<small class="text-danger" >{{fm.errors|striptags}}</small>
+                <br>
+                {% endfor %}
+                <br>
+                <input type="submit" value="Add" class="btn btn-primary"><br><br>
+                
+                
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock main-content %}
